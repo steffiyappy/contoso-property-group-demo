@@ -372,15 +372,16 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
 
 
 <section id="ex1">
-<div class="modulehead"><div class="num">1</div><h2>Exercise 1 · Daily Briefing<small>Researcher · Critique</small></h2></div>
-<div class="callout good"><b>How a GM starts the day in 2 minutes.</b> Open Microsoft 365 Copilot at <a href="https://copilot.microsoft.com" target="_blank">copilot.microsoft.com</a> → click <b>Researcher</b>. Keep the model picker on <b>Auto</b> (this is Critique — dual-model with self-review). Paste the prompt below.</div>
+<div class="modulehead"><div class="num">1</div><h2>Exercise 1 · Daily Briefing<small>Researcher · or · Copilot Chat</small></h2></div>
+<div class="callout good"><b>How a GM starts the day in 2 minutes.</b> Two ways to land the same briefing. Pick the one that fits your style — a deep, cited Researcher read, or a quick visual dashboard from Copilot Chat.</div>
 
 <div class="card">
-<p class="lead">Researcher reads your inbox, calendar, Teams chats, and recent files — then hands General Manager · Township Development a single, structured briefing for the day. No more spending the first 30 minutes catching up.</p>
+<p class="lead">Either path reads inbox, calendar, Teams chats and recent files, and hands General Manager · Township Development a structured briefing for the day. No more spending the first 30 minutes catching up.</p>
 
 <div class="activity">
- <div class="head"><span class="num">Task 1.1</span><span class="file">🔍 Researcher · Auto (Critique)</span></div>
- <h4>Generate today&#39;s GM daily briefing</h4>
+ <div class="head"><span class="num">Task 1.1 · Option A</span><span class="file">🔍 Researcher · Auto (Critique)</span></div>
+ <h4>Generate today&#39;s GM daily briefing — structured readout</h4>
+ <p>Open Microsoft 365 Copilot at <a href="https://m365.cloud.microsoft/chat" target="_blank">m365.cloud.microsoft/chat</a> → click <b>Researcher</b>. Keep the model picker on <b>Auto</b> (this is Critique — dual-model with self-review). Paste:</p>
  <div class="prompt">Create a daily briefing from emails, messages, documents, and meetings to help me prepare for the current workday. Use your understanding of the projects I work on, workstreams I care about, and key people I work with to understand what is relevant and important.
 
 Sections:
@@ -389,22 +390,60 @@ A short intro paragraph that provides an overview of my day, i.e. what a persona
 
 Key updates since yesterday – Include informational updates from the last workday that are likely to impact my work and collaborations.
 
-Suggested tasks for today – Tasks or questions assigned to me that I should handle today. Cross-check that suggested tasks haven't been completed already.
+Suggested tasks for today – Tasks or questions assigned to me that I should handle today. Cross-check that suggested tasks haven&#39;t been completed already.
 
 List unread email threads from the past week that likely need my reply—prioritize those where I&#39;m on To/CC, @mentioned, or involve requests, deadlines, leadership, or customers. Exclude automated messages. Show only urgent or important items in a concise table, and draft replies where needed. If none require action, say: &#39;I didn&#39;t find any unread threads that require a reply.&#39;
 
 Meeting prep for today – Upcoming meetings only, shown in a table with: Meeting (time, title, organizer), Topic Overview, and Suggested Preparations. Note if inferred or not needed.
 
 Rules:
-Start with a header: Daily briefing – Day, Date. Follow with a sub-header stating the timestamp of generation. Start each section with a meaningful emoji. Use only explicitly stated facts; no speculation, interpretations or predictions. If a section has no data, state that.<button class="copy" onclick="cp(this)">Copy</button></div>
+Start with a header: Daily briefing – Day, Date. Follow with a sub-header stating the timestamp of generation. Start each section with a meaningful emoji. Use only explicitly stated facts; no speculation, interpretations or predictions. If a section has no data, state that.
+
+Language: render the brief in English. If any source content (emails, Teams chats, calendar items, files, draft replies) is in Bahasa Indonesia, translate it into English first. Keep proper nouns in the original language. English only in the output.<button class="copy" onclick="cp(this)">Copy</button></div>
  <div class="callout"><b>What success looks like:</b> within 90 seconds you have a one-screen brief: overview paragraph, key updates since yesterday, today&#39;s tasks, unread threads that need a reply (with drafts), and a meeting-prep table — all grounded on real signals from your tenant, with citations.</div>
 </div>
 
+<div class="activity">
+ <div class="head"><span class="num">Task 1.1 · Option B</span><span class="file">💬 Copilot Chat · HTML dashboard</span></div>
+ <h4>Same brief — as a self-contained HTML dashboard</h4>
+ <p>Stay in <b>Copilot Chat</b> (no Researcher, no Cowork) at <a href="https://m365.cloud.microsoft/chat" target="_blank">m365.cloud.microsoft/chat</a>. Paste:</p>
+ <div class="prompt">Build me a self-contained HTML dashboard titled &quot;GM Daily Briefing — &lt;Day, Date&gt;&quot; for General Manager · Township Development at Contoso Property Group. Pull facts from my emails, Teams chats, calendar, and recent files. Use only explicitly stated facts. No speculation.
+
+Output ONE single HTML file (all CSS inline, no JavaScript, no external assets, no images). Return it as a code block so I can save it as Briefing.html.
+
+Layout:
+
+1. Brand header band (deep navy #0F1F3D background, gold #C4994E accent) with the title on the left and a generated-at timestamp on the right.
+
+2. Four KPI scorecards across the top in a 4-column grid:
+   · Meetings today (count + first meeting time)
+   · Unread threads needing my reply (count)
+   · Tasks/asks due today (count)
+   · Decisions awaiting me (count)
+
+3. &quot;Top 3 things I need to know&quot; card — three bullets, each one sentence, the most decision-relevant items from the last 24 hours.
+
+4. Two-column section:
+   · Left: &quot;Meetings today&quot; table — Time · Title · Organiser · One-line prep note.
+   · Right: &quot;Unread threads to reply&quot; table — From · Subject · Why it matters · Draft reply (one sentence).
+
+5. &quot;Tasks &amp; asks&quot; card — bullet list with the asker, the ask, and the due date.
+
+6. &quot;Files touched in the last 24 hours&quot; card — file name, who touched it, what changed in one line.
+
+7. Footer band with a one-sentence &quot;Sign-off&quot; — what the GM should focus on for the next 4 hours.
+
+Styling rules: rounded 10px cards, soft shadow, 14px body type, navy headings, gold dividers. Mobile-friendly (single column under 720px). Make it look like a polished executive dashboard, not a Word doc.
+
+Language: render the whole dashboard in English. If any source content is in Bahasa Indonesia, translate it into English first. Keep proper nouns (names, township names, project names) in the original language. English only in the dashboard.<button class="copy" onclick="cp(this)">Copy</button></div>
+ <div class="callout"><b>Why two options:</b> Researcher gives you a deep, cited readout — best when you want to drill into sources. Copilot Chat HTML gives you a one-screen visual the GM can put on a second monitor for the day.</div>
+</div>
+
 <div class="activity bonus">
- <div class="head"><span class="num">Bonus</span><span class="file">🔍 Researcher · follow-up</span></div>
+ <div class="head"><span class="num">Bonus</span><span class="file">🔍 Follow-up</span></div>
  <h4>Drill in on the single most important item</h4>
- <p>Pick one item from the briefing that needs deeper thinking. Ask Researcher:</p>
- <div class="prompt">Take the highest-priority item from the briefing above. Pull together everything I&#39;ve received on it in the last 14 days — emails, chats, files, meeting notes. Summarise the current state in 5 bullets, list the open decisions, and draft one short message I should send today to move it forward.<button class="copy" onclick="cp(this)">Copy</button></div>
+ <p>Pick one item from the briefing or dashboard that needs deeper thinking. Ask Researcher (or Copilot Chat):</p>
+ <div class="prompt">Take the highest-priority item from the briefing above. Pull together everything I&#39;ve received on it in the last 14 days — emails, chats, files, meeting notes. Summarise the current state in 5 bullets, list the open decisions, and draft one short message I should send today to move it forward. Translate any Bahasa Indonesia content into English; keep proper nouns in the original language.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 </div>
 </section>
